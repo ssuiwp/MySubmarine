@@ -42,19 +42,19 @@ public interface SubjectMapper {
             "       <if test='query.subjectNames != null'> " +
             "           <foreach collection='query.subjectNames' item='sname' separator=',' open='(' close=')'> " +
             "           AND name like " +
-            "               '%'#{sname}'%' " +
+            "               \"%\"#{sname}\"%\" " +
             "           </foreach>" +
             "       </if> " +
             "       <if test='query.subjectType != null'>" +
             "           <foreach collection='query.subjectType' item='stype' separator=',' open='(' close=')'> " +
             "           AND type like " +
-            "               '%'#{stype}'%' " +
+            "               \"%\"#{stype}\"%\" " +
             "           </foreach> " +
             "       </if> " +
             "       <if test='query.subjectUnit != null'>" +
             "           <foreach collection='query.subjectUnit' item='unit' separator=',' open='(' close=')'> " +
             "           AND unit like " +
-            "               '%'#{unit}'%' " +
+            "               \"%\"#{unit}\"%\" " +
             "           </foreach> " +
             "       </if> " +
             "   limit #{query.PageInfo.pageSize*(query.PageInfo.currentPage-1)}, #{pageSize} ;" +
