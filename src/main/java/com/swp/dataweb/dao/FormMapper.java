@@ -51,13 +51,13 @@ public interface FormMapper {
             "       <if test='query.subjectNames != null'> " +
             "           <foreach collection='query.subjectNames' item='sname' separator=',' open='(' close=')'> " +
             "           AND id like " +
-            "               %#{sname}% " +
+            "               '%#{sname}%' " +
             "           </foreach>" +
             "       </if> " +
             "       <if test='query.formNames != null'>" +
             "           <foreach collection='query.formNames' item='fname' separator=',' open='(' close=')'> " +
             "           AND subject_name like " +
-            "               %#{fname}% " +
+            "               '%#{fname}%' " +
             "           </foreach> " +
             "       </if> " +
             "   limit #{query.PageInfo.pageSize*(query.PageInfo.currentPage-1)}, #{pageSize} ;" +

@@ -36,13 +36,13 @@ public interface MultiItemMapper {
             "       <if test='query.itemNames != null'> " +
             "           <foreach collection='query.itemNames' item='name' separator=',' open='(' close=')'> " +
             "           AND name like " +
-            "               %#{name}% " +
+            "               '%#{name}%' " +
             "           </foreach>" +
             "       </if> " +
             "       <if test='query.types != null'>" +
             "           <foreach collection='query.types' item='type' separator=',' open='(' close=')'> " +
             "           AND type like " +
-            "               %#{type}% " +
+            "               '%#{type}%' " +
             "           </foreach> " +
             "       </if> " +
             "   limit #{query.PageInfo.pageSize*(query.PageInfo.currentPage-1)}, #{pageSize} ;" +
