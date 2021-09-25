@@ -23,8 +23,6 @@ public class FormService {
     @Resource
     private TDataMapper tDataMapper;
 
-
-
     /**
      * 创建表单和表单与问项关联表
      * @param form 表单
@@ -45,24 +43,21 @@ public class FormService {
      */
     @Transactional
     public Response<Form> updateForm(Form form){
-
-
         formMapper.updateRelation(form);
         formMapper.updateForm(form);
         return Response.success(form);
     }
-
 
     /**
      * 查找表单
      */
     @Transactional
     public QueryResponse<List<Form>> obtainForm(FormQuery query){
-        List<Form> forms = formMapper.getForm(query);
-        PageInfo p = new PageInfo();
+        query.pageInfo = new PageInfo();
         int total = formMapper.getTotal();
-        p.setTotalCount(total);
-        return QueryResponse.success(forms,p);
+        query.pageInfo.setTotalCount(total);
+        List<Form> forms = formMapper.getForm(query);
+        return QueryResponse.success(forms,query.pageInfo);
     }
 
     /**

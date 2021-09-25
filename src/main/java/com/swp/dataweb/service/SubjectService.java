@@ -38,10 +38,10 @@ public class SubjectService {
 
     @Transactional
     public QueryResponse<List<Subject>> obtainSubject(SubjectQuery query){
+        query.pageInfo = new PageInfo();
+        query.pageInfo.setTotalCount(subjectMapper.getTotal());
         List<Subject> subjects = subjectMapper.getSubjects(query);
-        PageInfo p = new PageInfo();
-        p.setTotalCount(subjectMapper.getTotal());
-        return QueryResponse.success(subjects,p);
+        return QueryResponse.success(subjects,query.pageInfo);
     }
 
     public Response<Subject> updateSubject(Subject subject){

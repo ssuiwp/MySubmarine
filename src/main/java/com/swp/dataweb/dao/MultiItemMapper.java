@@ -45,7 +45,7 @@ public interface MultiItemMapper {
             "               \"%\"#{type}\"%\" " +
             "           </foreach> " +
             "       </if> " +
-            "   limit #{query.PageInfo.pageSize*(query.PageInfo.currentPage-1)}, #{pageSize} ;" +
+            "   limit #{query.pageInfo.pageFirst}, #{query.pageInfo.pageSize} ;" +
             "</script>")
     @Results(id = "itemResultMap" , value = {
             @Result(column = "create_time", property = "createTime")

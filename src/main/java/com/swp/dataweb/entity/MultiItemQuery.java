@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class MultiItemQuery {
+public class MultiItemQuery extends Query{
 
     //问项id
     private List<Long> itemIds;

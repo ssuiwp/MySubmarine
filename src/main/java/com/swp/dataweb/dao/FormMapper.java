@@ -60,7 +60,7 @@ public interface FormMapper {
             "               \"%\"#{fname}\"%\" " +
             "           </foreach> " +
             "       </if> " +
-            "   limit #{query.PageInfo.pageSize*(query.PageInfo.currentPage-1)}, #{pageSize} ;" +
+            "   limit #{query.pageInfo.pageFirst}, #{query.pageInfo.pageSize} ;" +
             "</script>")
     @Results(id = "formResultMap" ,value = {
             @Result(column = "subject_name", property = "subjectName"),

@@ -13,4 +13,5 @@ public class PageInfo<T> extends BaseEntity {
     private int currentPage;//当前页码
     private int pageSize;//每页显示条数
 
+    private int pageFirst = pageSize*(currentPage-1);// 起始条数
 }

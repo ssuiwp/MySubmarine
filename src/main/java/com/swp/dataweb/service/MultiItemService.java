@@ -42,10 +42,10 @@ public class MultiItemService {
      */
     @Transactional
     public QueryResponse<List<MultiItem>> obtainMultiItem(MultiItemQuery query){
+        query.pageInfo = new PageInfo();
+        query.pageInfo.setTotalCount(multiItemMapper.getTotal());
         List<MultiItem> multiItems = multiItemMapper.getMultiItem(query);
-        PageInfo p = new PageInfo();
-        p.setTotalCount(multiItemMapper.getTotal());
-        return QueryResponse.success(multiItems,p);
+        return QueryResponse.success(multiItems,query.pageInfo);
     }
 
     private static Response<MultiItem> checkMultiItem(/*User user,*/ MultiItem multiItem){
