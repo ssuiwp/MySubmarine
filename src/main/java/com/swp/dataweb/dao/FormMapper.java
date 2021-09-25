@@ -71,7 +71,7 @@ public interface FormMapper {
     /**
      * 查询表单总数
      */
-    @Select("select count(id) form form" )
+    @Select("select count(*) form form" )
     int getTotal();
 
     /**

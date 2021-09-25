@@ -55,7 +55,7 @@ public interface MultiItemMapper {
     /**
      * 查询问项总数
      */
-    @Select("select count(id) from multiitem")
+    @Select("select count(*) from multiitem")
     int getTotal();
 
 

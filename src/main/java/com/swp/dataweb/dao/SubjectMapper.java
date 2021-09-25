@@ -67,7 +67,7 @@ public interface SubjectMapper {
     /**
      * 查询课题总数
      */
-    @Select("select count(id) from subject")
+    @Select("select count(*) from subject")
     int getTotal();
 
     /**
